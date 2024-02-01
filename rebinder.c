@@ -30,18 +30,18 @@ struct qname {
 struct __packed root {
    struct __packed {
        uint8_t len;        // 5
-       uint8_t data[5];    // 'r' 'b' 'n' 'd' 'r'
+       uint8_t data[11];    // 'r' 'b' 'n' 'd' 'r'
    } domain;
    struct __packed {
        uint8_t len;        // 2
-       uint8_t data[2];    // 'u' 's'
+       uint8_t data[5];    // 'u' 's'
    } tld;
    uint8_t root;           // 0
 };
 
 static const struct root kExpectedDomain = {
-   .domain = { 5, { 'r', 'b', 'n', 'd', 'r' } },
-   .tld    = { 2, { 'u', 's' } },
+   .domain = { 11, { 't', 'e', 's', 't', 'i', 'n', 'g', 'o', 'n', 'l', 'y' } },
+   .tld    = { 5, { 's', 't', 'o', 'r', 'e' } },
    .root   = 0,
 };
 
